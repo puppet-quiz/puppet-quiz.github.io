@@ -27,6 +27,23 @@
 		</style>
 		</head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+function keydowncheck()
+{
+var result = true;
+var keycode = event.keyCode;
+if(123 == keycode) //F12방지 키코드
+{
+result = false;
+}
+return result;
+}
+	
+$(window.document).ready(function(){
+$(window.document).on("contextmenu", function(event){return false;});	//우클릭방지
+});	
+	
+	
 	</head>
 
 	<body>
