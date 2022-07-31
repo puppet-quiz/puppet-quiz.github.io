@@ -28,25 +28,28 @@
 		</head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script type="text/javascript"> $(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(function() { if($(this).val() == "") { $(this).val(""); } }); }); </script>	
+<script type="text/javascript"> 
+secrets.CLICK_RESET
+//$(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(function() { if($(this).val() == "") { $(this).val(""); } }); }); 
+</script>	
+	
 <script type="text/javascript">
 function keydowncheck()
 {
 var result = true;
 var keycode = event.keyCode;
-if(123 == keycode) //F12방지 키코드
+if(123 == keycode)
 {
 result = false;
 }
 return result;
 }
 </script>
-
 <body onkeydown="return keydowncheck();">	
 	
 <script language="JavaScript">	
 $(window.document).ready(function(){
-$(window.document).on("contextmenu", function(event){return false;});	//우클릭방지
+$(window.document).on("contextmenu", function(event){return false;});
 });	
 </script>	
 	
