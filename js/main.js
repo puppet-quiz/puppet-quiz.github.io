@@ -20,7 +20,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 			$.each(data, function (key, val) {
 				if ((val.quiz.search(regex) != -1) || (val.answer.search(regex) != -1)) {
 //					output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p></td><td class="정답"><p>' + val.answer + '</p></td></tr>';
-					output += '<tr class="result"><td class="퀴즈">' + val.quiz + val.answer;
+					output += '<tr class="result"><td class="퀴즈">' + val.quiz '<br>' + val.answer;
 				}
 			});
 		$('#search_results').html(output);
