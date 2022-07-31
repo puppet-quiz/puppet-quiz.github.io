@@ -1,5 +1,5 @@
 var back_color="#001a06";
-var base_color="white";
+var base_color="#fdf6e3";
 var ans_color="#eaf100";
 
 function applycolor(b_color,b2_color,a_color){
