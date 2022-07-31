@@ -5,7 +5,7 @@ var ans_color="#eaf100";
 function applycolor(b_color,b2_color,a_color){
 	$("body").css("background-color",b_color);
 	$(".quiz, .lead, label").css("color",b2_color);
-	$(".answer").css("color",a_color);
+
 }
 
 document.getElementById('search_term').addEventListener('keyup',function(){
