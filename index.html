@@ -82,7 +82,17 @@ $(window.document).on("contextmenu", function(event){return false;});
 		}
 	  });
 	});
+	
+	$(window).on("keydown", function (e) {
+   	if (e.keyCode == 17 || e.keyCode == 18 || e.keyCode == 27 || (e.keyCode > 111 && e.keyCode < 124) || e.altKey || e.ctrlKey) {
+     	return false;
+  	 }
+	});
+	
+	
 	</script>
+
+
 
 
 
