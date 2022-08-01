@@ -58,10 +58,39 @@ $(window.document).on("contextmenu", function(event){return false;});
 });	
 </script>	
 	
+<script type="text/javascript">
+		var omitformtags=["input", "textarea", "select"]
+		omitformtags=omitformtags.join("|")
+		function disableselect(e){
+		if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
+		return false
+		}
+		function reEnable(){
+		return true
+		}
+		if (typeof document.onselectstart!="undefined")
+		document.onselectstart=new Function ("return false")
+		else{
+		document.onmousedown=disableselect
+		document.onmouseup=reEnable
+		}
+	$(document).ready(function(){
+	  $(document).bind('keydown', function(e) {
+		if(e.keyCode == 123) {
+		  e.preventDefault();
+		  e.returnValue = false;
+		}
+	  });
+	});
+	</script>
+
+
+
 	
 	</head>
 
-	<body>
+	<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">	
+<!--		<body> -->
 		
 	<style type="text/css">
 		*{
