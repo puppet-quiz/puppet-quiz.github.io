@@ -17,7 +17,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 		var output = '';
 //		output += '<tr class="result"><td style="text-align:center; background-color:#52525f;"><p>퀴즈 내용</p></td><td style="text-align:center; background-color:#005f6b;"><p>정답</p></td></tr>'
 //		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
-		$.getJSON(${{ secrets.GSHEET }}, function (data) {
+		$.getJSON(GSHEET, function (data) {
 			$.each(data, function (key, val) {
 				if ((val.quiz.search(regex) != -1) || (val.answer.search(regex) != -1)) {
 //					output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p></td><td class="정답"><p>' + val.answer + '</p></td></tr>';
