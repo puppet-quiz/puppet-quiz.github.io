@@ -1,6 +1,6 @@
 var back_color="#000d03";
 var base_color="#fdf6e3";
-var ans_color="##c4c902";
+var ans_color="#c4c902";
 
 function applycolor(b_color,b2_color,a_color){
 	$("body").css("background-color",b_color);
