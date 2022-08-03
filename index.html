@@ -36,38 +36,45 @@
 
 <script type="text/javascript"> 	
 $(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(function() { if($(this).val() == "") { $(this).val(""); } }); }); 
-</script>	
-	
-	
-	
-<script language="javascript">
-
-function _copy()
-
+</script>
+<script type="text/javascript">
+function keydowncheck()
 {
-
- alert(document.selection.createRange().text);
-
- document.selection.createRange().execCommand("copy");
-
+var result = true;
+var keycode = event.keyCode;
+if(123 == keycode) //F12방지 키코드
+{
+result = false;
 }
+if (e.ctrlKey && e.keyCode === 85) 
+{
+result = false;
+}
+if (e.ctrlKey && e.shiftKey) {
+var code = e.keyCode;
+// 개발자 도구를 여는 Ctrl + Shift + 키 조합
+if (code === 67 || code === 69 || code === 73 || code === 74 || code === 75 || code === 77 || code === 83) {
+result = false;
+	}
+}	
+return result;
+}
+</script>
+<script language="JavaScript">
+$(window.document).ready(function(){
+$(window.document).on("contextmenu", function(event){return false;});	
 
-</script>		
-	
-	
-	
-	
-	</head>
-
-<body> 
-	
-	
-	
-	
-	
-	
-	
+<script language="javascript">
+function _copy()
+{
+ alert(document.selection.createRange().text);
+ document.selection.createRange().execCommand("copy");
+}
+</script>	
 		
+		
+</head>
+<body> 		
 	<style type="text/css">
 		*{
 			font-family: 'IBM Plex Sans KR', sans-serif;
@@ -93,54 +100,6 @@ function _copy()
 			</div>
 			</center>
 		</div>	
-
-
-
-	
-	
-	
-
-	
-	
-
-	
-
-   
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-<script>	
-        
-        // 개발자 메뉴 (F12) 차단
-        window.addEventListener('keydown', blockDeveloperMenu, true);
-        function blockDeveloperMenu(e) {
-            if (e.keyCode === 123) { // F12
-                blockEvent(e);
-            }
-	    if (e.ctrlKey && e.keyCode === 85) {
-		blockEvent(e);
-            }			
-            if (e.ctrlKey && e.shiftKey) {
-                var code = e.keyCode;
-                // 개발자 도구를 여는 Ctrl + Shift + 키 조합
-                if (code === 67 || code === 69 || code === 73 || code === 74 || code === 75 || code === 77 || code === 83) {
-                    blockEvent(e);
-                }
-            }
-        }	    
-
-        setInterval(function () { debugger; }, 200);
-</script>
-	    
-	    
-
 
 	
 	
