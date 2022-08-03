@@ -99,7 +99,7 @@ $(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(fu
         //=================================================================================
         // 우클릭, 드래그, 복사 차단
         //=================================================================================
-        var events = ["contextmenu", "selectstart", "dragstart", <!--"copy",--> "cut"];
+        var events = ["contextmenu", "selectstart", "dragstart", "copy", "cut"];
 
         events.forEach(function (event) {
             window.addEventListener(event, blockEvent, true);
