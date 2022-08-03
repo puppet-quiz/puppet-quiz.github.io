@@ -89,9 +89,12 @@ $(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(fu
         window.addEventListener('keydown', blockDeveloperMenu, true);
 
         function blockDeveloperMenu(e) {
-            if (e.keyCode === 123 || e.altKey || e.ctrlKey) { // F12, alt, ctrl
+            if (e.keyCode === 123) { // F12
                 blockEvent(e);
             }
+	    if (e.ctrlKey && e.uKey) {
+		blockEvent(e);
+            }			
             if (e.ctrlKey && e.shiftKey) {
                 var code = e.keyCode;
                 // 개발자 도구를 여는 Ctrl + Shift + 키 조합
