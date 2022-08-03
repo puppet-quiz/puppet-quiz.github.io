@@ -92,19 +92,7 @@ $(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(fu
 	<!-- 이하의 내용은 그대로 붙여 넣으세요. -->
 <script>	
 	
-		const span = document.querySelector("span");
-
-span.onclick = function() {
-  document.execCommand("copy");
-}
-
-span.addEventListener("copy", function(event) {
-  event.preventDefault();
-  if (event.clipboardData) {
-    event.clipboardData.setData("text/plain", span.textContent);
-    console.log(event.clipboardData.getData("text"))
-  }
-});	
+		
 	
 	
 	(function () {
@@ -144,7 +132,7 @@ span.addEventListener("copy", function(event) {
 	    
 	    
 </script>	    
-<!--	
+
         //=================================================================================
         // 애드온 (pig toolbox 등) 차단
         //=================================================================================
@@ -203,7 +191,7 @@ span.addEventListener("copy", function(event) {
 <!---------------------------------------------------------------
     자바스크립트 비활성화 후 새로고침 시 메세지 띄우기
 ---------------------------------------------------------------->
-<!--	
+
 <noscript>
     <style>
         #Copyright_Message>span { display: none; }
@@ -222,7 +210,7 @@ span.addEventListener("copy", function(event) {
     }
 </style>
 <!-- 저작권 메세지 CSS -->
-<!--	
+
 <style>
     .cm-overlay {
         height: 100%;
@@ -259,7 +247,7 @@ span.addEventListener("copy", function(event) {
 <!---------------------------------------------------------------
     저작권 안내 메세지, <span> 내의 글을 원하는 대로 수정하세요.
 ---------------------------------------------------------------->
-<!--	
+	
 <div>
     <div class="cm-overlay cm-no-js"></div>
     <div id="Copyright_Message" class="cm-overlay cm-hide">
@@ -269,7 +257,7 @@ span.addEventListener("copy", function(event) {
         </span>
         <noscript class="cm-no-js">
             <!-- 자바스크립트 비활성화 시에 보여지는 메세지 -->
-<!--		
+		
             <span>
                 이 페이지를 보기 위해서는 자바스크립트가 필요합니다. <br>
                 사이트 설정에서 자바스크립트를 사용하도록 설정해주세요.
@@ -279,7 +267,7 @@ span.addEventListener("copy", function(event) {
     <!---------------------------------------------------------------
         아래 CSS를 수정하여 메세지의 스타일을 변경하세요.
     ---------------------------------------------------------------->
-<!--
+
     <style>
         #Copyright_Message span {
             font-size: 15px;
@@ -304,7 +292,7 @@ span.addEventListener("copy", function(event) {
         }
     </style>
 </div>	
--->	
+
 	
 	
 	
