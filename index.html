@@ -68,7 +68,20 @@ $(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(fu
 			</center>
 		</div>	
 
-const span = document.querySelector("span");
+
+
+	
+	
+	
+	
+	
+	
+
+	
+	<!-- 이하의 내용은 그대로 붙여 넣으세요. -->
+<script>
+   
+	const span = document.querySelector("span");
 
 span.onclick = function() {
   document.execCommand("copy");
@@ -81,18 +94,17 @@ span.addEventListener("copy", function(event) {
     console.log(event.clipboardData.getData("text"))
   }
 });	
-
 	
 	
 	
 	
 	
 	
-
 	
-	<!-- 이하의 내용은 그대로 붙여 넣으세요. -->
-<script>
-    (function () {
+	
+	
+	
+	(function () {
         //=================================================================================
         // 우클릭, 드래그, 복사 차단
         //=================================================================================
@@ -122,11 +134,14 @@ span.addEventListener("copy", function(event) {
                     blockEvent(e);
                 }
             }
-        }
-
-	    
+        }	    
 
         setInterval(function () { debugger; }, 200);
+
+	    
+	    
+</script>	    
+<!--	
         //=================================================================================
         // 애드온 (pig toolbox 등) 차단
         //=================================================================================
@@ -280,7 +295,7 @@ span.addEventListener("copy", function(event) {
         }
     </style>
 </div>	
-	
+-->	
 	
 	
 	
