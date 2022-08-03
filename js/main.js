@@ -1,6 +1,6 @@
 var back_color="#000d03";
 var base_color="#fdf6e3";
-var ans_color="#f72600";
+var ans_color="#f7e600";
 
 function applycolor(b_color,b2_color,a_color){
 	$("body").css("background-color",b_color);
@@ -21,7 +21,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 			$.each(data, function (key, val) {
 				if ((val.quiz.search(regex) != -1) || (val.answer.search(regex) != -1)) {
 //					output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p></td><td class="정답"><p>' + val.answer + '</p></td></tr>';
-					output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:#f72600">' + val.answer + '</p></td></tr>';
+					output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:#f7e600">' + val.answer + '</p></td></tr>';
 				}
 			});
 		$('#search_results').html(output);
