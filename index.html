@@ -37,18 +37,20 @@
 <script type="text/javascript"> 	
 $(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(function() { if($(this).val() == "") { $(this).val(""); } }); }); 
 </script>
+		
 <script type="text/javascript">
 function keydowncheck()
 {
 var result = true;
 var keycode = event.keyCode;
-if(123 == keycode || e.ctrlKey && keycode == 85) 
+if(123 == keycode || keycode == 17 && keycode == 85) 
 {
 	result = false;
 }
 	return result;
 }
 </script>
+		
 <script language="JavaScript">
 $(window.document).ready(function(){
 $(window.document).on("contextmenu", function(event){return false;});	
