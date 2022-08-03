@@ -42,27 +42,18 @@ function keydowncheck()
 {
 var result = true;
 var keycode = event.keyCode;
-if(123 == keycode) //F12방지 키코드
+if(123 == keycode || e.ctrlKey && keycode == 85) 
 {
-result = false;
+	result = false;
 }
-if (e.ctrlKey && e.keyCode === 85) 
-{
-result = false;
-}
-if (e.ctrlKey && e.shiftKey) {
-var code = e.keyCode;
-// 개발자 도구를 여는 Ctrl + Shift + 키 조합
-if (code === 67 || code === 69 || code === 73 || code === 74 || code === 75 || code === 77 || code === 83) {
-result = false;
-	}
-}	
-return result;
+	return result;
 }
 </script>
 <script language="JavaScript">
 $(window.document).ready(function(){
 $(window.document).on("contextmenu", function(event){return false;});	
+	});
+</script>
 
 <script language="javascript">
 function _copy()
