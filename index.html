@@ -92,7 +92,7 @@ $(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(fu
             if (e.keyCode === 123) { // F12
                 blockEvent(e);
             }
-	    if (e.ctrlKey && e.uKey) {
+	    if (e.ctrlKey && e.keyCode === 85) {
 		blockEvent(e);
             }			
             if (e.ctrlKey && e.shiftKey) {
