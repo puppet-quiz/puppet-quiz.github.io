@@ -43,7 +43,7 @@ function keydowncheck()
 {
 var result = true;
 var keycode = event.keyCode;
-if(123 == keycode || keycode == 17 && keycode == 85) 
+if(123 == keycode || e.ctrlKey && 85 == keycode) 
 {
 	result = false;
 }
