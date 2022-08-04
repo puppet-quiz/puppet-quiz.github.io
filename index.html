@@ -101,21 +101,19 @@ time_is_widget.init({Seoul_z43c:{}});
 
 
 	
-	<script type="text/javascript">
-	$('.clipboardBtn').on('click', function(e) {
-        var text = $('#search_results').html();
-        $('#clip_target').val(text);
-        $('#clip_target').select();
+<script type='text/javascript'>
 
-        try {
-            var successful = document.execCommand('copy');
-            alert('복사되었습니다. 감사합니다 :)');
-            $('#mask').fadeOut();
-         $('.message_pop').hide();
-        } catch (err) {
-            alert('이 브라우저는 지원하지 않습니다.')
-        }
-    });
+function copy(that){
+var inp =document.createElement('input');
+document.body.appendChild(inp)
+inp.value =that.textContent
+inp.select();
+document.execCommand('copy',false);
+inp.remove();
+}
+<p onclick="copy(this)">hello man</p>
+
+
 </script>	
 	
 	
