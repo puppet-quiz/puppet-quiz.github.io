@@ -103,13 +103,19 @@ time_is_widget.init({Seoul_z43c:{}});
 	
 <script type='text/javascript'>
 
-function copyToClipboard(text) {
-   const elem = document.createElement('search_results');
-   elem.value = text;
-   document.body.appendChild(elem);
-   elem.select();
-   document.execCommand('copy');
-   document.body.removeChild(elem);
+function copyToClipboard(val) {
+  const element = document.createElement('textarea');
+  element.value = val;
+  element.setAttribute('readonly', '');
+  element.style.position = 'absolute';
+  element.style.left = '-9999px';
+  document.body.appendChild(element);
+  element.select();
+  var returnValue = document.execCommand('copy');
+  document.body.removeChild(element);
+  if (!returnValue) {
+    throw new Error('copied nothing');
+  }
 }
 
 
