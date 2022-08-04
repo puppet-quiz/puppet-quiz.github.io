@@ -31,37 +31,6 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 
 
 
-$('.clipboardBtn').on('click', function(e) {
-        var text = $('#search_results').html();
-        $('#clip_target').val(text);
-        $('#clip_target').select();
-
-        try {
-            var successful = document.execCommand('copy');
-            alert('복사되었습니다. 감사합니다 :)');
-            $('#mask').fadeOut();
-         $('.message_pop').hide();
-        } catch (err) {
-            alert('이 브라우저는 지원하지 않습니다.')
-        }
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
