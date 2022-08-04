@@ -43,20 +43,20 @@ function keydowncheck()
 {
 var result = true;
 var keycode = event.keyCode;
-if(123 == keycode) 
+if(123 == keycode || keycode == 17 && keycode == 85) 
 {
 	result = false;
 }
 	return result;
 }
 	
-<!--|| keycode == 17 && keycode == 85-->	
+	
 </script>
 		
 	
 		
 </head>
-<body> 		
+<body onkeydown="return keydowncheck();">
 	<style type="text/css">
 		*{
 			font-family: 'IBM Plex Sans KR', sans-serif;
