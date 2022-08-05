@@ -101,28 +101,21 @@ time_is_widget.init({Seoul_z43c:{}});
 
 
 <script type="text/javascript">
-    function copyToClipboard(message) {
-        var textArea = document.createElement("search_results");
-        textArea.value = message;
-        textArea.style.opacity = "0"; 
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-
-
-        try {
-            var successful = document.execCommand('copy');
-            var msg = successful ? 'successful' : 'unsuccessful';
-            alert('Copying text command was ' + msg);
-        } catch (err) {
-            alert('Unable to copy value , error : ' + err.message);
-        }
-
-        document.body.removeChild(textArea);
-    }
-
+document.getElementById("copy").onclick = function() {
+    var copyTextarea = document.createElement("textarea");
+    copyTextarea.style.position = "fixed";
+    copyTextarea.style.opacity = "0";
+    copyTextarea.textContent = document.getElementById("content").value;
+ 
+    document.body.appendChild(copyTextarea);
+    copyTextarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(copyTextarea);
+}
 </script>
-	
+
+<textarea id="search_results"</textarea>
+<button id="copy" title="Copy Textarea Content">Copy</button>
 
 	
 	
