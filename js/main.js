@@ -19,7 +19,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
 		
 			$.each(data, function (key, val) {
-				if ((val.quiz.search(regex) != -1) /*|| (val.answer.search(regex) != -1)*/) {
+				if ((hangul.d(val.quiz.search(regex),true) != -1) /*|| (val.answer.search(regex) != -1)*/) {
 //					output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p></td><td class="정답"><p>' + val.answer + '</p></td></tr>';
 					output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
 				}
