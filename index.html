@@ -102,23 +102,19 @@ time_is_widget.init({Seoul_z43c:{}});
 
 	
 	
-	
-    <textarea id="search_results" </textarea>
-    <button id="copy" title="Copy Textarea Content">Copy</button>	
+
 	
 	
 <script type="text/javascript">
-document.getElementById("copy").onclick = function() {
-    var copyTextarea = document.createElement("textarea");
-    copyTextarea.style.position = "fixed";
-    copyTextarea.style.opacity = "0";
-    copyTextarea.textContent = document.getElementById("content").value;
- 
-    document.body.appendChild(copyTextarea);
-    copyTextarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(copyTextarea);
-}
+const copyToClipboard = (text) => {
+  const textarea = document.createElement('textarea');
+  document.body.appendChild(textarea);
+  textarea.value = text;
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
+};
 </script>
 
 
