@@ -23,24 +23,24 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 		//이부분이 초성 검색이 가능하게 만들어 주는 부분
 
 			
-			let source = $.map(data, function(item) { //json[i] 번째 에 있는게 item 임.
+			let source = $.map(data, function(val.quiz) { //json[i] 번째 에 있는게 item 임.
 					chosung = "";
-					//Hangul.d(item, true) 을 하게 되면 item이 분해가 되어서 
+					//Hangul.d(val.quiz, true) 을 하게 되면 item이 분해가 되어서 
 					//["ㄱ", "ㅣ", "ㅁ"],["ㅊ", "ㅣ"],[" "],["ㅂ", "ㅗ", "ㄲ"],["ㅇ", "ㅡ", "ㅁ"],["ㅂ", "ㅏ", "ㅂ"]
 					//으로 나오는데 이중 0번째 인덱스만 가지고 오면 초성이다.
 					
-					full = Hangul.disassemble(item).join("").replace(/ /gi, "") ;	//공백제거된 ㄱㅣㅁㅊㅣㅂㅗㄲㅇㅡㅁㅂㅏㅂ
+					full = Hangul.disassemble(val.quiz).join("").replace(/ /gi, "") ;	//공백제거된 ㄱㅣㅁㅊㅣㅂㅗㄲㅇㅡㅁㅂㅏㅂ
 					
-					Hangul.d(item, true).forEach(function(strItem, index) {
+					Hangul.d(val.quiz, true).forEach(function(strquiz, index) {
 						
-						if(strItem[0] != " "){	//띄어 쓰기가 아니면
-							chosung += strItem[0];//초성 추가
+						if(strquiz[0] != " "){	//띄어 쓰기가 아니면
+							chosung += strquiz[0];//초성 추가
 							
 						}
 					});
 				return {
-						label : chosung + "|" + (item).replace(/ /gi, "") +"|" + full, //실제 검색어랑 비교 대상 ㄱㅊㅂㅇㅂ|김치볶음밥|ㄱㅣㅁㅊㅣㅂㅗㄲㅇㅡㅁㅂㅏㅂ 이 저장된다.
-						value : item, //김치 볶음밥
+						label : chosung + "|" + (val.quiz).replace(/ /gi, "") +"|" + full, //실제 검색어랑 비교 대상 ㄱㅊㅂㅇㅂ|김치볶음밥|ㄱㅣㅁㅊㅣㅂㅗㄲㅇㅡㅁㅂㅏㅂ 이 저장된다.
+						value : val.quiz, //김치 볶음밥
 						chosung : chosung,	//ㄱㅊㅂㅇㅂ,
 						full : full
 					}
