@@ -100,11 +100,13 @@ time_is_widget.init({Seoul_z43c:{}});
 		</div>	
 
 
-
-<textarea id="search_results"></textarea>	
+<!--
+<textarea id="search_results"></textarea>	-->
 	
 <script type='text/javascript'>
-
+<input onclick="this.select(); document.execCommand('copy');" type='text' value='copy me' />
+	
+<!--	
 function copyToClipboard(val) {
   const element = document.createElement('textarea');
   element.value = val;
@@ -118,7 +120,7 @@ function copyToClipboard(val) {
   if (!returnValue) {
     throw new Error('copied nothing');
   }
-}
+}-->
 
 
 </script>	
