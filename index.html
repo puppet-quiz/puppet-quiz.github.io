@@ -104,7 +104,29 @@ time_is_widget.init({Seoul_z43c:{}});
 <textarea id="search_results"></textarea>	-->
 	
 <script type='text/javascript'>
-<input onclick="this.select(); document.execCommand('copy');" type='text' value='copy me' />
+function copyToClp(txt){
+    var m = document;
+    txt = m.createTextNode(txt);
+    var w = window;
+    var b = m.body;
+    b.appendChild(txt);
+    if (b.createTextRange) {
+        var d = b.createTextRange();
+        d.moveToElementText(txt);
+        d.select();
+        m.execCommand('copy');
+    } 
+    else {
+        var d = m.createRange();
+        var g = w.getSelection;
+        d.selectNodeContents(txt);
+        g().removeAllRanges();
+        g().addRange(d);
+        m.execCommand('copy');
+        g().removeAllRanges();
+    }
+    txt.remove();
+}
 	
 <!--	
 function copyToClipboard(val) {
