@@ -1,3 +1,5 @@
+const Hangul = require('hangul-js');
+
 var back_color="#000d03";
 var base_color="#fdf6e3";
 var ans_color="ffd700";
