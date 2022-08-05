@@ -105,20 +105,18 @@ time_is_widget.init({Seoul_z43c:{}});
 
 	
 	
-<script type="text/javascript">
-function is_ie() {
-    if(navigator.userAgent.toLowerCase().indexOf("chrome") != -1) return false;
-    if(navigator.userAgent.toLowerCase().indexOf("msie") != -1) return true;
-    if(navigator.userAgent.toLowerCase().indexOf("windows nt") != -1) return true;
-    return false;
-}
-function copy_to_clipboard(str) {
-    if( is_ie() ) {
-        window.clipboardData.setData("Text", str);
-        alert("복사되었습니다.");
-        return;
-    }
-    prompt("Ctrl+C를 눌러 복사하세요.", str);
+<script>
+// code 선택자
+$('code').on('click', function(e){
+  let copyToClipboard = document.createElement('textarea');
+  
+  // 태그가 필요한 것은 아니므로
+  copyToClipboard.value = e.target.innerText;
+  document.body.appendChild(copyToClipboard);
+  copyToClipboard.select();
+  copyToClipboard.setSelectionRange(0, 9999); 
+  document.execCommand('copy');
+  document.body.removeChild(copyToClipboard);
 }
 
 
