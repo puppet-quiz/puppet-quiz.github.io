@@ -1,4 +1,4 @@
-const Hangul = require('hangul-js');
+// const Hangul = require('hangul-js');
 
 var back_color="#000d03";
 var base_color="#fdf6e3";
