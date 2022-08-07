@@ -1,3 +1,5 @@
+<script type="text/javascript" src="js/hangul.min.js"></script>
+
 var back_color="#000d03";
 var base_color="#fdf6e3";
 var ans_color="ffd700";
