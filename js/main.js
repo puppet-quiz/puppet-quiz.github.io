@@ -13,11 +13,6 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 	var searchField = $('#search_term').val();
 	if(searchField == ''){}
 	else{
-		var regex = new RegExp(searchField, 'i');
-
-
-		var output = '';
-//		output += '<tr class="result"><td style="text-align:center; background-color:#52525f;"><p>퀴즈 내용</p></td><td style="text-align:center; background-color:#005f6b;"><p>정답</p></td></tr>'
 		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
 
 
@@ -31,6 +26,8 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 			item.diassembled = cho;        
 		});		
 		
+		var output = '';	
+		var regex = new RegExp(searchField, 'i');	
 		var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ	
 			
 		$.each(data, function (key, val) {				
