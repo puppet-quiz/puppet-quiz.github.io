@@ -15,7 +15,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 	else{
 		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
 
-
+/*
 // object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}        
 		$.each(data, function (val) {            
 			var dis = Hangul.disassemble(val.quiz, true);
@@ -25,14 +25,14 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 			}, "");
 			val.diassembled = cho;
 		});		
-		
+*/		
 		var output = '';	
 		var regex = new RegExp(searchField, 'i');	
-		var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ	
+//		var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ	
 			
 		$.each(data, function (key, val) {				
             	// 문자열 검색 || 초성검색
-            if ((val.quiz.search(regex) != -1) || (val.diassembled.search(regex1) != -1) /*|| (val.answer.search(regex) != -1)*/) {
+            if ((val.quiz.search(regex) != -1) /*|| (val.diassembled.search(regex1) != -1) /*|| (val.answer.search(regex) != -1)*/) {
              
                   output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
                                 }
