@@ -21,22 +21,23 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 		var output = '';
 //		output += '<tr class="result"><td style="text-align:center; background-color:#52525f;"><p>퀴즈 내용</p></td><td style="text-align:center; background-color:#005f6b;"><p>정답</p></td></tr>'
 		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
-		
 
+
+        // object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}        
+		$.each(data, function (item) {            
+			var dis = Hangul.disassemble(item.quiz, true);            
+			var cho = dis.reduce(function (prev, elem) {                
+				elem = elem[0] ? elem[0] : elem;                
+				return prev + elem;            
+			}, "");            
+			item.diassembled = cho;        
+		});		
+		
+		var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ	
 			
-		// object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}        
-			$.each(data, function (key, val) {
-				var dis = Hangul.disassemble(val.quiz, true);
-				var cho = dis.reduce(function (prev, elem) {
-				elem = elem[0] ? elem[0] : elem;
-				return prev + elem;
-				}, "");
-			val.diassembled = cho;
-				
-		var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ		
-				
+		$.each(data, function (key, val) {				
             	// 문자열 검색 || 초성검색
-            if ((val.quiz.search(regex) != -1) || (val.diassembled.search(regex1) != -1) /*|| (val.answer.search(regex) != -1)*/) {
+            if ((val.quiz.search(regex) != -1) || (item.diassembled.search(regex1) != -1) /*|| (val.answer.search(regex) != -1)*/) {
                 //output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p></td><td class="정답"><p>' + val.answer + '</p></td></tr>';
                   output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
                                 }
@@ -45,13 +46,6 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 		});
 	}
 });
-
-
-
-
-
-
-
 
 
 applycolor(back_color,base_color,ans_color);
