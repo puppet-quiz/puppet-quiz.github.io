@@ -14,7 +14,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 	if(searchField == ''){}
 	else{
 		var regex = new RegExp(searchField, 'i');
-	var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ
+
 
 		var output = '';
 //		output += '<tr class="result"><td style="text-align:center; background-color:#52525f;"><p>퀴즈 내용</p></td><td style="text-align:center; background-color:#005f6b;"><p>정답</p></td></tr>'
@@ -30,6 +30,9 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 				return prev + elem;
 				}, "");
 			val.diassembled = cho;
+				
+		var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ		
+				
             	// 문자열 검색 || 초성검색
             if ((val.quiz.search(regex) != -1) || (val.diassembled.search(regex1) != -1) /*|| (val.answer.search(regex) != -1)*/) {
                 //output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p></td><td class="정답"><p>' + val.answer + '</p></td></tr>';
