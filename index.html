@@ -12,69 +12,9 @@
   
     <script>
         // 검색할 배열
-        var arr = new gdata("<!--https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq-->http://spreadsheets.google.com/tq?key=1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg&pub=1");
-            <!--
-            [
-            { name: "홍길동" },
-            { name: "한국" },
-            { name: "호가든" },
-            { name: "프로그램목록" },
-            { name: "프로세스" },
-            { name: "공통" },
-            { name: "아키텍쳐" },
-            { name: "앙칼지다" },
-            { name: "학사행정" },
-            { name: "일반부속" },
-            { name: "학습 및 취업" },
-            { name: "테이블정의서" },
-            { name: "테이저건" },
-            { name: "정의서" },
-            { name: "현행화" },
-            { name: "졸업" },
-            { name: "바인더" },
-            { name: "대학본부" },
-            { name: "에디터" },
-            { name: "Visual Studio Code" },
-            { name: "Edit Plus" },
-            { name: "소나무" },
-            { name: "민들레" },
-            { name: "나뭇가지" },
-            { name: "갑천" },
-            { name: "한강" },
-            { name: "금강" },
-            { name: "도안동" },
-            { name: "월평동" },
-            { name: "대전광역시" },
-            { name: "서울" },
-            { name: "경기도" },
-            { name: "성남시" },
-            { name: "모니터" },
-            { name: "이클립스" },
-            { name: "탐색기" },
-            { name: "엑셀" },
-            { name: "크롬" },
-            { name: "파이어폭스" },
-            { name: "텔레그램" },
-            { name: "팟플레이어" },
-            { name: "마이크로소프트" },
-            { name: "애플" },
-            { name: "LG" },
-            { name: "삼성" },
-            { name: "오라클" },
-            { name: "MySQL" },
-            { name: "치약" },
-            { name: "프린터" },
-            { name: "레이저 프린터" },
-            { name: "아반떼" },
-            { name: "베라크루즈" },
-            { name: "자동차공학과" },
-            { name: "기아자동차" },
-            { name: "현대자동차" },
-            { name: "에어컨" }
-        ];-->
-  
+        $.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (arr) {
         // object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}
-        arr.forEach(function (item) {
+            $.each(arr, function (item) {	
             var dis = Hangul.disassemble(item.quiz, true);
             var cho = dis.reduce(function (prev, elem) {
                 elem = elem[0] ? elem[0] : elem;
@@ -82,6 +22,7 @@
             }, "");
             item.diassembled = cho;
         });
+            });
   
         console.log(arr);
   
