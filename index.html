@@ -75,7 +75,7 @@
   
         // object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}
         arr.forEach(function (item) {
-            var dis = Hangul.disassemble(item.name, true);
+            var dis = Hangul.disassemble(item.quiz, true);
             var cho = dis.reduce(function (prev, elem) {
                 elem = elem[0] ? elem[0] : elem;
                 return prev + elem;
@@ -99,12 +99,12 @@
             arr
             // 문자열 검색 || 초성검색
             .filter(function (item) {
-                return item.name.includes(search) || item.diassembled.includes(search1);
+                return item.quiz.includes(search) || item.diassembled.includes(search1);
             })
             // 검색결과 ul 아래에 li 로 추가
             .forEach(function (item) {
                 var li = document.createElement('li');
-                li.innerHTML = item.name;
+                li.innerHTML = item.quiz;
   
                 ul.appendChild(li);
             });
