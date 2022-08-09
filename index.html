@@ -12,7 +12,7 @@
   
     <script>
         // 검색할 배열
-        var arr = $.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq");
+        $.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (arr) {
         
         // object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}
         arr.forEach(function (item) {
@@ -22,6 +22,7 @@
                 return prev + elem;
             }, "");
             item.diassembled = cho;
+        });
         });
   
         console.log(arr);
