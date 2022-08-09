@@ -1,120 +1,119 @@
-<html lang="ko">
-   <head>
-      <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+          
       <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-      <title>아밍 & 퍼펫 천애명월도M 족보</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
-      <script type="text/javascript" src="js/hangul.min.js"></script>
+<!-- 필요한 CSS, JS 로드 -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-      <style>
-         body {
-            line-height: 1;
-            width:100%;
-            background-color: #000d03;
-            line-height: 1;
-            font-size: 12px;
-         }
-         .quiz, .lead, label {
-            color: #fdf6e3;
-         }
+<script type="text/javascript" src="js/hangul.min.js"></script>     
 
-         p {
-            margin-top:5px;
-            margin-bottom:5px;
-            margin-left:10px;
-            margin-right:10px;
-         }
-         #result tr:not(.result) {
-            display:none;
-         }
-      </style>
-      </head>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-<script type="text/javascript">    
-$(function() { $(".form-control").focus(function() { $(this).val(''); }).blur(function() { if($(this).val() == "") { $(this).val(""); } }); }); 
-</script>
-      
-<script type="text/javascript">
-function keydowncheck()
-{
-var result = true;
-var keycode = event.keyCode;
-if(123 == keycode || event.ctrlKey && 85 == keycode) 
-{
-   result = false;
-}
-   return result;
-}
-   
-   
-</script>
-      
-   
-      
 </head>
-<body onkeydown="return keydowncheck();">
-   <style type="text/css">
-      *{
-         font-family: 'IBM Plex Sans KR', sans-serif;
-      }
-   </style>
-      
-      <div class="container">
-         <h1 class="quiz" style='word-break: keep-all;'><strong>천애명월도M 족보&nbsp;<sub> Made with by 아밍 & 퍼펫</sub></strong></h1><br>
-         <form id="searchform" onsubmit="return false;">
-            <div class="form-group">
-               <label for="search_term"></label>
-               <input type="text" autocomplete="off" class="form-control" name="search_term" placeholder="퀴즈 문제를 입력해 주세요." id="search_term" />
-               
-               
-<br>
-<a href="https://time.is/Seoul" id="time_is_link" rel="nofollow" style="font-size:18px;color:#fdf6e3">서울특별시 시간:</a>
-<span id="Seoul_z43c" style="font-size:18px;color:#fdf6e3"></span>
-<script src="//widget.time.is/t.js"></script>
+   
+<body>
+    <!-- body 부분 -->
+   <input type="text" id="searchInput"/>
+</body>   
+   
+   
+
+  
 <script>
-time_is_widget.init({Seoul_z43c:{}});
+	$(function() { //화면 다 뜨면 시작
+		//DB쿼리 조작 없이 초성 검색을 하기 위해서는 우선 DB에 있는 항목들을 다 가지고 와야한다.
+		//즉 너무 많은 수가 있으면 클라이언트 측이 느려질 수 있다는 점.
+		//하지만 DB쿼리를 조작해서 서버에서 초성검색을 하는 방식에 비해 서버에는 무리가 없다.
+		// ajax로 미리 검색어 목록을 다 가지고 온다.
+		$.ajax({
+			type : 'get',
+			url : "https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq",
+			dataType : "json",
+			//request.term = $("#autocomplete").val()
+			//data: {"param":"param"},
+			success : function(data) {
+				//현재 data 상태
+				//data = ["김치 볶음밥","신라면","진라면","라볶이","팥빙수","너구리","삼양라면","안성탕면","불닭볶음면","짜왕","라면사리"];
+				
+				//이부분이 초성 검색이 가능하게 만들어 주는 부분
+				let source = $.map(data, function(quiz) { //json[i] 번째 에 있는게 item 임.
+					chosung = "";
+					//Hangul.d(item, true) 을 하게 되면 item이 분해가 되어서 
+					//["ㄱ", "ㅣ", "ㅁ"],["ㅊ", "ㅣ"],[" "],["ㅂ", "ㅗ", "ㄲ"],["ㅇ", "ㅡ", "ㅁ"],["ㅂ", "ㅏ", "ㅂ"]
+					//으로 나오는데 이중 0번째 인덱스만 가지고 오면 초성이다.
+					
+					full = Hangul.disassemble(quiz).join("").replace(/ /gi, "") ;	//공백제거된 ㄱㅣㅁㅊㅣㅂㅗㄲㅇㅡㅁㅂㅏㅂ
+					
+					Hangul.d(quiz, true).forEach(function(strquiz, index) {
+						
+						if(strquiz[0] != " "){	//띄어 쓰기가 아니면
+							chosung += strquiz[0];//초성 추가
+							
+						}
+					});
+					
+					
+					return {
+						label : chosung + "|" + (quiz).replace(/ /gi, "") +"|" + full, //실제 검색어랑 비교 대상 ㄱㅊㅂㅇㅂ|김치볶음밥|ㄱㅣㅁㅊㅣㅂㅗㄲㅇㅡㅁㅂㅏㅂ 이 저장된다.
+						value : quiz, //김치 볶음밥
+						chosung : chosung,	//ㄱㅊㅂㅇㅂ,
+						full : full
+					}
+				});
+				
+				
+				$("#searchInput").autocomplete({
+					source : source,	// source 는 자동 완성 대상
+					select : function(event, ui) {	//아이템 선택시
+						console.log(ui.quiz.label + " 선택 완료");	
+						
+					},
+					focus : function(event, ui) {	//포커스 가면
+						return false;//한글 에러 잡기용도로 사용됨
+					},
+// 					search : function( value, event ) {
+// // 						value.delegateTarget.value
+// // 						input = value.delegateTarget.value;
+						
+// 						//$( "#searchInput" ).autocomplete( "search", Hangul.disassemble(input).join("").replace(/ /gi, "") );
+// // 		 				return Hangul.disassemble(input).join("").replace(/ /gi, "");
+// 					}
+					
+				}).autocomplete( "instance" )._renderquiz = function( ul, quiz ) {	
+				//.autocomplete( "instance" )._renderItem 설절 부분이 핵심
+			      return $( "<li>" )	//기본 tag가 li로 되어 있음 
+			        .append( "<div>" + quiz.value + "</div>" )	//여기에다가 원하는 모양의 HTML을 만들면 UI가 원하는 모양으로 변함.
+			        .appendTo( ul );	//웹 상으로 보이는 건 정상적인 "김치 볶음밥" 인데 내부에서는 ㄱㅊㅂㅇㅂ,김치 볶음밥 에서 검색을 함.
+			    };
+			},
+			
+		});
+ 
+	
+		//여기가 한글 초중종성 검색 방법
+		$("#searchInput").on("keyup",function(){	//검색창에 뭔가가 입력될 때마다
+			input = $("#searchInput").val();	//입력된 값 저장
+			$( "#searchInput" ).autocomplete( "search", Hangul.disassemble(input).join("").replace(/ /gi, "") );	//자모 분리후 띄어쓰기 삭제
+		})
+	});
 </script>
-<br><br>
 
-               
-               
-               
-               
-               
-               <h6 style="color:white;">오타, 누락된 문제는 내용과 정답 공유 부탁드립니다.</h6>
-            </div>
-         </form>
-         <center>
-            <div id="result">
-            <table id="tb_result" style="color:white !important; width:100%; font-size:22px; word-break: keep-all;" xmlns="http://www.w3.org/1999/xhtml" class="ta1 table-bordered" cellspacing="0" cellpadding="0" border="0">
-<!--               <colgroup><col width="50%"><col width="50%"></colgroup>-->
-
-               <tbody id="search_results"></tbody>
-            </table>
-         </div>
-         </center>
-      </div>   
-
-
-
-
-
-   
-   
-<script language="JavaScript">
-$(window.document).ready(function(){
-$(window.document).on("contextmenu", function(event){return false;});   
-   });
-</script>   
-
-   </body>
-   <script src="js/main.js"></script>
+    
+    
+    
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" type="text/javascript"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    
+    
 </html>
