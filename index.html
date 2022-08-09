@@ -12,9 +12,20 @@
   
     <script>
         // 검색할 배열
-        $.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (arr) {
+        var arr = [
+            { quiz: "증거" },
+            { quiz: "해가" },
+            { quiz: "호랑이" },
+            { quiz: "사자" },
+            ];
+            
+            
+            
+            <!--$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq");-->
+            
+            
         // object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}
-            $.each(arr, function (key, item) {	
+        arr.forEach(function (item) {
             var dis = Hangul.disassemble(item.quiz, true);
             var cho = dis.reduce(function (prev, elem) {
                 elem = elem[0] ? elem[0] : elem;
@@ -22,7 +33,6 @@
             }, "");
             item.diassembled = cho;
         });
-            });
   
         console.log(arr);
   
