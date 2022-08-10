@@ -43,7 +43,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
             val.diassembled = cho;
 			
 		
-//           var search = this.value;
+           var search = this.value;
 //           var regex1 = Hangul.disassemble(regex).join("");  // ㄺ=>ㄹㄱ
 
 		
