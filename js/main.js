@@ -28,7 +28,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 */		
 		var output = '';	
 		var regex = new RegExp(searchField, 'i');	
-//		var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ	
+		var regex1 = Hangul.disassemble(regex).join(""); // ㄺ=>ㄹㄱ	
 			
 		$.each(data, function (key, val) {				
             	// 문자열 검색 || 초성검색
