@@ -28,11 +28,26 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 */		
 		var output = '';	
 		var regex = new RegExp(searchField, 'i');	
-		var search = this.value;
-//            	var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ
+
 
 			
-		$.each(data, function (key, val) {				
+		$.each(data, function (key, val) {	
+
+	// object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}
+        
+            var dis = Hangul.disassemble(val.quiz, true);
+            var cho = dis.reduce(function (prev, elem) {
+                elem = elem[0] ? elem[0] : elem;
+                return prev + elem;
+            }, "");
+            val.diassembled = cho;
+			
+		var search = this.value;
+//            	var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ			
+        
+
+			
+			
             	// 문자열 검색 || 초성검색
             if ((val.quiz.search(regex) != -1) /*|| (val.diassembled.search(search1) != -1) /*|| (val.answer.search(regex) != -1)*/) {
              
