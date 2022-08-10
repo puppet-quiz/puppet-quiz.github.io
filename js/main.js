@@ -29,7 +29,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 		var output = '';	
 		var regex = new RegExp(searchField, 'i');	
 		var search = this.value;
-            	var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ
+//            	var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ
 
 			
 		$.each(data, function (key, val) {				
