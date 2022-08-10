@@ -44,7 +44,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 			
 		
  //           var search = this.value;
-            var regex1 = Hangul.disassemble.search(regex).join("");  // ㄺ=>ㄹㄱ
+            var regex1 = Hangul.disassemble.search.join("");  // ㄺ=>ㄹㄱ
 		
         
 
