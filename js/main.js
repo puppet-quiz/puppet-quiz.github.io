@@ -43,13 +43,15 @@ document.getElementById('search_term').addEventListener('keyup',function(){
             val.diassembled = cho;
 			
 		
-            	var regex1 = Hangul.disassemble(regex).join("");  // ㄺ=>ㄹㄱ			
+            var search = this.value;
+            var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ
+		
         
 
 			
 			
             	// 문자열 검색 || 초성검색
-            if ((val.quiz.search(regex) != -1) || (val.diassembled.search(regex1) != -1) /*|| (val.answer.search(regex) != -1)*/) {
+            if ((val.quiz.search(regex) != -1) || val.diassembled.includes(search1) /*|| (val.answer.search(regex) != -1)*/) {
              
                   output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
                                 }
