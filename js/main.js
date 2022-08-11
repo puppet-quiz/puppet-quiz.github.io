@@ -31,13 +31,13 @@ document.getElementById('search_term').addEventListener('keyup',function(){
             val.diassembled = cho;
 			
 		
-            var search = this.value;            
+//            var search = this.value;            
 //	var search1 = (search).join("");  // ㄺ=>ㄹㄱ
 
     			
 			
             	// 문자열 검색 || 초성검색
-            if ((val.quiz.includes(search) != -1) || (val.diassembled.includes(search) != -1)) {           
+            if ((val.quiz.includes(regex) != -1) || (val.diassembled.includes(regex) != -1)) {           
 		                              
    
                   output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
