@@ -32,7 +32,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 			
 		
            var search = this.value;
-           var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ       
+//           var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ       
 
 			
 			
