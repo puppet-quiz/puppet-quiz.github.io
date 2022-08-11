@@ -15,21 +15,9 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 	else{
 		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
 
-/*
-// object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}        
-		$.each(data, function (val) {            
-			var dis = Hangul.disassemble(val.quiz, true);
-			var cho = dis.reduce(function (prev, elem) {
-				elem = elem[0] ? elem[0] : elem;
-				return prev + elem;
-			}, "");
-			val.diassembled = cho;
-		});		
-*/		
+	
 		var output = '';	
 		var regex = new RegExp(searchField, 'i');	
-
-
 			
 		$.each(data, function (key, val) {	
 
@@ -44,10 +32,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 			
 		
            var search = this.value;
-            //var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ
-
-		
-        
+           var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ       
 
 			
 			
