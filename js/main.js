@@ -31,8 +31,9 @@ document.getElementById('search_term').addEventListener('keyup',function(){
             val.diassembled = cho;
 			
 		
-//            var search = this.value;            
-//	var search1 = (search).join("");  // ㄺ=>ㄹㄱ
+//            var search = this.value;
+//            var search1 = Hangul.disassemble(search).join("");  // ㄺ=>ㄹㄱ
+
 
     			
 			
