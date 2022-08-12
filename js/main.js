@@ -21,7 +21,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 			
 		$.each(data, function (key, val) {	
 
-	// object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}
+/*	// object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}
         
             var dis = Hangul.disassemble(val.quiz, true);
             var cho = dis.reduce(function (prev, elem) {
@@ -37,8 +37,8 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 
     			
 			
-            	// 문자열 검색 || 초성검색
-            if ((val.quiz.search(regex) != -1) || (val.diassembled.search(regex) != -1)) {           
+            	// 문자열 검색 || 초성검색*/
+            if ((val.quiz.search(regex) != -1) /*|| (val.diassembled.search(regex) != -1)*/) {           
 		                              
    
                   output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
