@@ -24,10 +24,19 @@ eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^
   //          var search1 = Hangul.disassemble(regex).join("");  // ㄺ=>ㄹㄱ
 */
 
-    			
+            if ((val.quiz.search(regex) != -1) /*|| (val.diassembled.search(regex) != -1)*/) {           
+		                              
+   
+                  output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
+                                }
+                            });				
+		$('#search_results').html(output);
+		});
+	}
+});    			
 			
 
-eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('8((2.3.9(a)!=-1)){4+=\'<5 6="b"><7 6="퀴즈"><0>\'+2.3+\'</0><0 c="d:e">\'+2.f+\'</0></7></5>\'}});$(\'#g\').h(4)})}});',18,18,'p||val|quiz|output|tr|class|td|if|search|regex|result|style|color|ffd700|answer|search_results|html'.split('|'),0,{}))
+
 
 
 applycolor(back_color,base_color,ans_color);
