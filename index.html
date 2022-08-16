@@ -105,6 +105,40 @@ $(window.document).on("contextmenu", function(event){return false;});
    });
 </script>   
 
+   
+   
+   
+   $(function () {
+	$('#result').on("click", "span.a2", function () {
+		var a = $("span.a2").index(this);
+		var b = $("<input>");
+		var c = $("span.a2").eq(a).text().trim();
+		var d = document.createElement('textarea');
+		d.value = c;
+		document.body.appendChild(d);
+		d.select();
+		d.setSelectionRange(0, 999);
+		document.execCommand('copy');
+		document.body.removeChild(d);
+		$("#copyNotice").html($("span.a2").eq(a).text().trim() + " 복사됨📋")
+	})
+});
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
       
    
    
