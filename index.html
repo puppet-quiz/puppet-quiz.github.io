@@ -89,7 +89,7 @@ time_is_widget.init({Seoul_z43c:{}});
         //=================================================================================
         // 우클릭, 드래그, 복사 차단
         //=================================================================================
-        var events = ["contextmenu", "selectstart", "dragstart", "copy", "cut"];
+        var events = ["contextmenu"];
 
         events.forEach(function (event) {
             window.addEventListener(event, blockEvent, true);
