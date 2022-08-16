@@ -11,7 +11,7 @@ function applycolor(b_color,b2_color,a_color){
 document.getElementById('search_term').addEventListener('keyup',function(){
 	$('.result').removeClass('result');
 	var searchField = $('#search_term').val();
-	if(searchField == ''){}
+	if(searchField == '' || searchField == ' '){}
 	else{
 		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
 
