@@ -86,7 +86,6 @@ time_is_widget.init({Seoul_z43c:{}});
                              
 <a href="https://game.naver.com/lounge/Moonlight_Blade_M/board/detail/706518" target='_blank' style="font-size:18px;color:#fdf6e3">오타, 누락된 문제는 내용과 정답 공유 부탁드립니다, 해당 문장 클릭시 링크로 이동합니다.</a>
             </div>
-            <div id="copyNotice" style="color: red; font-size: 18px; font-weight: bold; text-align: center;">정답<span style="color: blue;">을 살짝 터치하면 복사됩니다.🤭</span></div>
          </form>
          <center>
             <div id="result">
@@ -105,42 +104,6 @@ $(window.document).on("contextmenu", function(event){return false;});
    });
 </script>   
 
-   
-   
-   <script>
-//<![CDATA[
-   $(function () {
-	$('#result').on("click", "span.a2", function () {
-		var a = $("span.a2").index(this);
-		var b = $("<input>");
-		var c = $("span.a2").eq(a).text().trim();
-		var d = document.createElement('textarea');
-		d.value = c;
-		document.body.appendChild(d);
-		d.select();
-		d.setSelectionRange(0, 999);
-		document.execCommand('copy');
-		document.body.removeChild(d);
-		$("#copyNotice").html($("span.a2").eq(a).text().trim() + " 복사됨📋")
-	})
-});
-//]]>
-</script>     
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
       
    
    
