@@ -22,7 +22,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^
 		
            var search = this.value;
   //          var search1 = Hangul.disassemble(regex).join("");  // ㄺ=>ㄹㄱ
-
+*/
 
     			
 			
