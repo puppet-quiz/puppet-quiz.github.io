@@ -13,7 +13,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
 	var searchField = $('#search_term').val();
 	if(searchField == '' || searchField == ' '){}
 	else{
-eval(function(p,a,c,k,e,r){e=String;if(!''.replace(/^/,String)){while(c--)r[c]=k[c]||c;k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$.0("1://2.3.4/5-6/7",8(9){',10,10,'getJSON|https|opensheet|elk|sh|1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P|qU6wg|mq|function|data'.split('|'),0,{}))
+		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
 
 	
 		var output = '';	
