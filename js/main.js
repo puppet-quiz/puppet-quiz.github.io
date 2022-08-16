@@ -8,7 +8,18 @@ function applycolor(b_color,b2_color,a_color){
 
 }
 
-eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('7.8(\'3\').9(\'a\',1(){$(\'.4\').b(\'4\');2 0=$(\'#3\').5();c(0==\'\'||0==\' \'){}d{$.e("f://g.h.j/k-l/m",1(6){2 n=\'\';2 o=p q(0,\'i\');$.r(6,1(s,5){',29,29,'searchField|function|var|search_term|result|val|data|document|getElementById|addEventListener|keyup|removeClass|if|else|getJSON|https|opensheet|elk||sh|1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P|qU6wg|mq|output|regex|new|RegExp|each|key'.split('|'),0,{}))
+document.getElementById('search_term').addEventListener('keyup',function(){
+	$('.result').removeClass('result');
+	var searchField = $('#search_term').val();
+	if(searchField == ''){}
+	else{
+		$.getJSON("https://opensheet.elk.sh/1iuVShj94nRbP7XMBbPX1gdY5UhxlBGqAhbY9P-qU6wg/mq", function (data) {
+
+	
+		var output = '';	
+		var regex = new RegExp(searchField, 'i');	
+			
+		$.each(data, function (key, val) {
 
 /*	// object 에 초성필드 추가 {name:"홍길동", diassembled:"ㅎㄱㄷ"}
         
