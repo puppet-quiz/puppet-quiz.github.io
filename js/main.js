@@ -41,7 +41,8 @@ document.getElementById('search_term').addEventListener('keyup',function(){
             if ((val.quiz.search(regex) != -1) /*|| (val.diassembled.search(regex) != -1)*/) {           
 		                              
    
-                  output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
+                  output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><br>
+		    <span class="a2" style="color:ffd700">' + val.answer + '</span></td></tr>';
                                 }
                             });				
 		$('#search_results').html(output);
