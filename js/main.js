@@ -38,7 +38,7 @@ document.getElementById('search_term').addEventListener('keyup',function(){
             if ((val.quiz.search(regex) != -1) /*|| (val.diassembled.search(regex) != -1)*/) {           
 		                              
    
-                  output += '<tr class="result"><td class="퀴즈"><p>' + val.quiz + '</p><p style="color:ffd700">' + val.answer + '</p></td></tr>';
+		eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('5+=\'<1 2="6"><3 2="퀴즈"><0>\'+4.7+\'</0><0 8="9:a">\'+4.b+\'</0></3></1>\';',12,12,'p|tr|class|td|val|output|result|quiz|style|color|ffd700|answer'.split('|'),0,{}))
                                 }
                             });				
 		$('#search_results').html(output);
